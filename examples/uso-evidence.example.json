@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1",
+  "protocol_version": "0.9.5",
+  "test_id": "TEST-2026-001",
+  "test_family_id": "TF-LOCAL-SERVICE-001",
+  "target_entity": {
+    "entity_id": "ENTITY-001",
+    "name": "Example Service Co.",
+    "entity_type": "ORGANIZATION",
+    "canonical_url": "https://example.com"
+  },
+  "created_at": "2026-08-08T12:00:00Z",
+  "evidence_records": [
+    {
+      "execution_id": "EXEC-0001",
+      "prompt": {
+        "prompt_id": "P-001",
+        "prompt_text": "Which local provider would you recommend for emergency repair?",
+        "represented_need": "Select a local provider for emergency repair.",
+        "prompt_class": [
+          "NON_BRANDED",
+          "PURCHASE_CONSIDERATION"
+        ],
+        "prompt_provenance": "ANALYST_CONSTRUCTED",
+        "prompt_construction_mode": "ENTITY_INDEPENDENT",
+        "construction_notes": null
+      },
+      "system_context": {
+        "system_name": "Example AI System",
+        "model_or_variant": "example-model-1",
+        "interface": "UI",
+        "authentication_state": "UNAUTHENTICATED",
+        "personalization_state": "DISABLED",
+        "memory_state": "DISABLED",
+        "geography": "Pennsylvania, US",
+        "locale": "en-US",
+        "language": "en",
+        "conversation_turn_position": 1,
+        "preceding_context": null
+      },
+      "executed_at": "2026-08-08T12:05:00Z",
+      "response_text": "Example Service Co. is one option to consider for emergency repair.",
+      "response_reference": null,
+      "target_entity_resolved": "RESOLVED",
+      "entity_resolution_notes": null,
+      "observation_states": {
+        "retrieved": "NOT_ESTABLISHED",
+        "mentioned": "OBSERVED",
+        "cited": "NOT_OBSERVED",
+        "included": "OBSERVED",
+        "recommended": "NOT_OBSERVED",
+        "recommendation_scope": null,
+        "recommendation_condition": null,
+        "adversely_treated": "NOT_OBSERVED",
+        "adverse_subtype": null
+      },
+      "citations": [],
+      "classification": {
+        "mode": "HUMAN",
+        "reviewer_or_role": "Independent reviewer",
+        "classifier_system": null,
+        "classifier_version": null,
+        "ruleset_version": null,
+        "instructions_reference": null,
+        "confidence": null
+      },
+      "exclusion": {
+        "excluded": false,
+        "reason": null,
+        "rule_id": null,
+        "rule_preexisted_execution": true,
+        "technical_failure": false
+      },
+      "notes": null,
+      "claim_validation": {
+        "status": "CLAIMS_EVALUATED",
+        "claims": [
+          {
+            "claim_id": "C-001",
+            "claim_text": "Example Service Co. provides emergency repair.",
+            "decision_material": true,
+            "validation_state": "VERIFIED",
+            "source_of_record": {
+              "source_name": "Example Service Co. official website",
+              "url": "https://example.com",
+              "authority_basis": "First-party service description",
+              "accessed_at": "2026-08-08T12:10:00Z"
+            },
+            "validation_notes": null,
+            "conflicting_sources": []
+          }
+        ],
+        "notes": null
+      }
+    }
+  ]
+}

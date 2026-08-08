@@ -1,0 +1,1190 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:uso:evidence-schema:0.1",
+  "title": "USO Evidence Schema v0.1",
+  "description": "Machine-readable execution evidence for USO Evidence Protocol v0.9.5. This schema represents execution observations and claim validation evidence. Test Manifest and Test Registry records are intentionally out of scope.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "protocol_version",
+    "test_id",
+    "target_entity",
+    "evidence_records"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1"
+    },
+    "protocol_version": {
+      "type": "string",
+      "const": "0.9.5"
+    },
+    "test_id": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "test_family_id": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "target_entity": {
+      "$ref": "#/$defs/entity"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "evidence_records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/executionObservation"
+      }
+    }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "uriString": {
+      "type": "string",
+      "format": "uri"
+    },
+    "entity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entity_id",
+        "name"
+      ],
+      "properties": {
+        "entity_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "name": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "entity_type": {
+          "type": "string",
+          "enum": [
+            "ORGANIZATION",
+            "BRAND",
+            "PRODUCT",
+            "SERVICE",
+            "PERSON",
+            "PLACE",
+            "OTHER"
+          ]
+        },
+        "canonical_url": {
+          "$ref": "#/$defs/uriString"
+        },
+        "disambiguation_note": {
+          "type": "string"
+        }
+      }
+    },
+    "systemContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "system_name"
+      ],
+      "properties": {
+        "system_name": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "model_or_variant": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "interface": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "UI",
+            "API",
+            "OTHER",
+            null
+          ]
+        },
+        "authentication_state": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "AUTHENTICATED",
+            "UNAUTHENTICATED",
+            "UNKNOWN",
+            null
+          ]
+        },
+        "personalization_state": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "ENABLED",
+            "DISABLED",
+            "UNKNOWN",
+            null
+          ]
+        },
+        "memory_state": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "ENABLED",
+            "DISABLED",
+            "UNKNOWN",
+            null
+          ]
+        },
+        "geography": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "locale": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "language": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "conversation_turn_position": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "preceding_context": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "promptEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "prompt_id",
+        "prompt_text",
+        "prompt_class",
+        "prompt_provenance",
+        "prompt_construction_mode"
+      ],
+      "properties": {
+        "prompt_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "prompt_text": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "represented_need": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "prompt_class": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "BRANDED",
+              "NON_BRANDED",
+              "INFORMATIONAL",
+              "PROBLEM_RECOGNITION",
+              "COMPARISON",
+              "ALTERNATIVES",
+              "REPUTATION",
+              "TRANSACTIONAL",
+              "PURCHASE_CONSIDERATION",
+              "OTHER"
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "enum": [
+                  "BRANDED",
+                  "NON_BRANDED"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            }
+          ]
+        },
+        "prompt_provenance": {
+          "type": "string",
+          "enum": [
+            "OBSERVED_CUSTOMER_LANGUAGE",
+            "SEARCH_QUERY_DATA",
+            "SALES_INTERACTION",
+            "SUPPORT_INTERACTION",
+            "KEYWORD_RESEARCH",
+            "ANALYST_CONSTRUCTED",
+            "SYNTHETICALLY_GENERATED",
+            "RESEARCH_DATASET",
+            "OTHER"
+          ]
+        },
+        "prompt_construction_mode": {
+          "type": "string",
+          "enum": [
+            "ENTITY_INDEPENDENT",
+            "ENTITY_INFORMED"
+          ]
+        },
+        "construction_notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "observationValue": {
+      "type": "string",
+      "enum": [
+        "OBSERVED",
+        "NOT_OBSERVED",
+        "NOT_ESTABLISHED"
+      ]
+    },
+    "recommendationScope": {
+      "type": "string",
+      "enum": [
+        "UNCONDITIONAL",
+        "CONDITIONAL",
+        "COMPARATIVE"
+      ]
+    },
+    "adverseSubtype": {
+      "type": "string",
+      "enum": [
+        "NEGATIVE_CHARACTERIZATION",
+        "STEER_AWAY",
+        "DISQUALIFICATION"
+      ]
+    },
+    "observationStates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "retrieved": {
+          "$ref": "#/$defs/observationValue"
+        },
+        "mentioned": {
+          "$ref": "#/$defs/observationValue"
+        },
+        "cited": {
+          "$ref": "#/$defs/observationValue"
+        },
+        "included": {
+          "$ref": "#/$defs/observationValue"
+        },
+        "recommended": {
+          "$ref": "#/$defs/observationValue"
+        },
+        "recommendation_scope": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/recommendationScope"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "recommendation_condition": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "adversely_treated": {
+          "$ref": "#/$defs/observationValue"
+        },
+        "adverse_subtype": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/adverseSubtype"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "recommended": {
+                "const": "OBSERVED"
+              }
+            },
+            "required": [
+              "recommended"
+            ]
+          },
+          "then": {
+            "required": [
+              "recommendation_scope"
+            ],
+            "properties": {
+              "recommendation_scope": {
+                "$ref": "#/$defs/recommendationScope"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "recommendation_scope": {
+                "const": "CONDITIONAL"
+              }
+            },
+            "required": [
+              "recommendation_scope"
+            ]
+          },
+          "then": {
+            "required": [
+              "recommendation_condition"
+            ],
+            "properties": {
+              "recommendation_condition": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "adversely_treated": {
+                "const": "OBSERVED"
+              }
+            },
+            "required": [
+              "adversely_treated"
+            ]
+          },
+          "then": {
+            "required": [
+              "adverse_subtype"
+            ],
+            "properties": {
+              "adverse_subtype": {
+                "$ref": "#/$defs/adverseSubtype"
+              }
+            }
+          }
+        }
+      ],
+      "minProperties": 1
+    },
+    "citation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "citation_id",
+        "source"
+      ],
+      "properties": {
+        "citation_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "source": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "url": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/uriString"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "display_text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "supports_claim_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        }
+      }
+    },
+    "claimValidationState": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "INACCURATE",
+        "MATERIALLY_MISLEADING",
+        "UNVERIFIED",
+        "NO_CLAIM_EVALUATED"
+      ]
+    },
+    "claimEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_id",
+        "claim_text",
+        "decision_material",
+        "validation_state"
+      ],
+      "properties": {
+        "claim_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "claim_text": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "decision_material": {
+          "type": "boolean"
+        },
+        "validation_state": {
+          "type": "string",
+          "enum": [
+            "VERIFIED",
+            "INACCURATE",
+            "MATERIALLY_MISLEADING",
+            "UNVERIFIED"
+          ]
+        },
+        "source_of_record": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/evidenceSource"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "validation_notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "conflicting_sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidenceSource"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "validation_state": {
+                "const": "VERIFIED"
+              }
+            },
+            "required": [
+              "validation_state"
+            ]
+          },
+          "then": {
+            "required": [
+              "source_of_record"
+            ],
+            "properties": {
+              "source_of_record": {
+                "$ref": "#/$defs/evidenceSource"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "validation_state": {
+                "enum": [
+                  "INACCURATE",
+                  "MATERIALLY_MISLEADING"
+                ]
+              }
+            },
+            "required": [
+              "validation_state"
+            ]
+          },
+          "then": {
+            "required": [
+              "validation_notes"
+            ],
+            "properties": {
+              "validation_notes": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "evidenceSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_name"
+      ],
+      "properties": {
+        "source_name": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "url": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/uriString"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "authority_basis": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "accessed_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      }
+    },
+    "classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode"
+      ],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "HUMAN",
+            "AUTOMATED",
+            "HYBRID"
+          ]
+        },
+        "reviewer_or_role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "classifier_system": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "classifier_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ruleset_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "instructions_reference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "confidence": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "enum": [
+                  "AUTOMATED",
+                  "HYBRID"
+                ]
+              }
+            },
+            "required": [
+              "mode"
+            ]
+          },
+          "then": {
+            "required": [
+              "classifier_system",
+              "classifier_version",
+              "ruleset_version",
+              "instructions_reference"
+            ],
+            "properties": {
+              "classifier_system": {
+                "type": "string",
+                "minLength": 1
+              },
+              "classifier_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "ruleset_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "instructions_reference": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "exclusion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "excluded",
+        "rule_preexisted_execution"
+      ],
+      "properties": {
+        "excluded": {
+          "type": "boolean"
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rule_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rule_preexisted_execution": {
+          "type": "boolean"
+        },
+        "technical_failure": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "excluded": {
+                "const": true
+              }
+            },
+            "required": [
+              "excluded"
+            ]
+          },
+          "then": {
+            "required": [
+              "reason",
+              "rule_id"
+            ],
+            "properties": {
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "rule_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "rule_preexisted_execution": {
+                "const": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    "executionObservation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "execution_id",
+        "prompt",
+        "system_context",
+        "executed_at",
+        "response_text",
+        "target_entity_resolved",
+        "observation_states",
+        "classification",
+        "claim_validation",
+        "citations",
+        "exclusion"
+      ],
+      "properties": {
+        "execution_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "prompt": {
+          "$ref": "#/$defs/promptEvidence"
+        },
+        "system_context": {
+          "$ref": "#/$defs/systemContext"
+        },
+        "executed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "response_text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "response_reference": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/uriString"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "target_entity_resolved": {
+          "type": "string",
+          "enum": [
+            "RESOLVED",
+            "AMBIGUOUS",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "entity_resolution_notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "observation_states": {
+          "$ref": "#/$defs/observationStates"
+        },
+        "citations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/citation"
+          }
+        },
+        "classification": {
+          "$ref": "#/$defs/classification"
+        },
+        "exclusion": {
+          "$ref": "#/$defs/exclusion"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "claim_validation": {
+          "$ref": "#/$defs/claimValidation"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "observation_states": {
+                "required": [
+                  "included"
+                ]
+              }
+            },
+            "required": [
+              "observation_states"
+            ]
+          },
+          "then": {
+            "properties": {
+              "prompt": {
+                "required": [
+                  "represented_need"
+                ],
+                "properties": {
+                  "represented_need": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "observation_states": {
+                "required": [
+                  "adversely_treated"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "observation_states": {
+                "required": [
+                  "recommended"
+                ]
+              }
+            },
+            "required": [
+              "observation_states"
+            ]
+          },
+          "then": {
+            "properties": {
+              "prompt": {
+                "required": [
+                  "represented_need"
+                ],
+                "properties": {
+                  "represented_need": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "observation_states": {
+                "required": [
+                  "adversely_treated"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "observation_states": {
+                "properties": {
+                  "cited": {
+                    "const": "OBSERVED"
+                  }
+                },
+                "required": [
+                  "cited"
+                ]
+              }
+            },
+            "required": [
+              "observation_states"
+            ]
+          },
+          "then": {
+            "properties": {
+              "citations": {
+                "type": "array",
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "target_entity_resolved": {
+                "const": "AMBIGUOUS"
+              }
+            },
+            "required": [
+              "target_entity_resolved"
+            ]
+          },
+          "then": {
+            "required": [
+              "entity_resolution_notes"
+            ],
+            "properties": {
+              "entity_resolution_notes": {
+                "type": "string",
+                "minLength": 1
+              },
+              "observation_states": {
+                "properties": {
+                  "mentioned": {
+                    "const": "NOT_ESTABLISHED"
+                  },
+                  "included": {
+                    "const": "NOT_ESTABLISHED"
+                  },
+                  "recommended": {
+                    "const": "NOT_ESTABLISHED"
+                  },
+                  "adversely_treated": {
+                    "const": "NOT_ESTABLISHED"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "exclusion": {
+                "properties": {
+                  "excluded": {
+                    "const": false
+                  }
+                },
+                "required": [
+                  "excluded"
+                ]
+              }
+            },
+            "required": [
+              "exclusion"
+            ]
+          },
+          "then": {
+            "properties": {
+              "response_text": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "exclusion": {
+                "properties": {
+                  "excluded": {
+                    "const": true
+                  },
+                  "technical_failure": {
+                    "const": true
+                  }
+                },
+                "required": [
+                  "excluded",
+                  "technical_failure"
+                ]
+              }
+            },
+            "required": [
+              "exclusion"
+            ]
+          },
+          "then": {
+            "properties": {
+              "response_text": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "observation_states": {
+                "properties": {
+                  "included": {
+                    "const": "OBSERVED"
+                  }
+                },
+                "required": [
+                  "included"
+                ]
+              }
+            },
+            "required": [
+              "observation_states"
+            ]
+          },
+          "then": {
+            "required": [
+              "claim_validation"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "observation_states": {
+                "properties": {
+                  "recommended": {
+                    "const": "OBSERVED"
+                  }
+                },
+                "required": [
+                  "recommended"
+                ]
+              }
+            },
+            "required": [
+              "observation_states"
+            ]
+          },
+          "then": {
+            "required": [
+              "claim_validation"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "observation_states": {
+                "properties": {
+                  "adversely_treated": {
+                    "const": "OBSERVED"
+                  }
+                },
+                "required": [
+                  "adversely_treated"
+                ]
+              }
+            },
+            "required": [
+              "observation_states"
+            ]
+          },
+          "then": {
+            "required": [
+              "claim_validation"
+            ]
+          }
+        }
+      ]
+    },
+    "claimValidation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "claims"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "CLAIMS_EVALUATED",
+            "NO_CLAIM_EVALUATED"
+          ]
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/claimEvidence"
+          }
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "NO_CLAIM_EVALUATED"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "claims": {
+                "type": "array",
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "CLAIMS_EVALUATED"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "claims": {
+                "type": "array",
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

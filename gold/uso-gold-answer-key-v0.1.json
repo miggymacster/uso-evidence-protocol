@@ -1,0 +1,710 @@
+{
+  "title": "USO Gold Test Set Answer Key v0.1",
+  "protocol_version": "0.9.5",
+  "case_count": 50,
+  "warning": "Do not provide this file to blind-study participants before classification is complete.",
+  "answers": {
+    "G001": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_OBSERVED",
+        "CITED": "OBSERVED",
+        "INCLUDED": "NOT_OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "The target is visibly cited as a source but is not identified in the response body as an option. Citation does not establish retrieval."
+    },
+    "G002": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "NOT_OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "The entity is identifiable but appears only as incidental historical context."
+    },
+    "G003": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "ExampleCo is presented as a legitimate candidate, but neither option is favored."
+    },
+    "G004": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": "UNCONDITIONAL",
+      "adverse_subtype": null,
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "The response explicitly favors ExampleCo."
+    },
+    "G005": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": "CONDITIONAL",
+      "adverse_subtype": null,
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "The target is favored under an explicit condition."
+    },
+    "G006": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": "COMPARATIVE",
+      "adverse_subtype": null,
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "The response explicitly prefers the target over a comparison entity."
+    },
+    "G007": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "List order alone does not establish recommendation."
+    },
+    "G008": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "Positive description plus inclusion does not itself establish preference."
+    },
+    "G009": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "NOT_OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": "STEER_AWAY",
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "The response explicitly steers the user away from the target."
+    },
+    "G010": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": "NEGATIVE_CHARACTERIZATION",
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "The target remains a candidate but receives a decision-relevant negative characterization."
+    },
+    "G011": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "NOT_OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": "DISQUALIFICATION",
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "The target is explicitly disqualified from the represented need."
+    },
+    "G012": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "The target cannot be resolved from another plausible entity with the same name."
+    },
+    "G013": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "The prompt and response sufficiently disambiguate the entity; 'worth considering' establishes inclusion but not explicit preference."
+    },
+    "G014": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "NOT_OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "The represented need is a luxury sedan. The response does not present the economy model as satisfying that need."
+    },
+    "G015": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "NOT_OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": "DISQUALIFICATION",
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "The need cannot be broadened post hoc from luxury sedan to transportation. The response also disqualifies the target for the actual need."
+    },
+    "G016": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "The response directly presents the target as capable of satisfying the represented need."
+    },
+    "G017": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "NOT_OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "Search association does not present the entity as a candidate."
+    },
+    "G018": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "NOT_OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "The entity is historical background rather than a current decision candidate."
+    },
+    "G019": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": "CONDITIONAL",
+      "adverse_subtype": null,
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "The target is explicitly favored under a price condition."
+    },
+    "G020": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "NOT_OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": "DISQUALIFICATION",
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "The target is explicitly disqualified while the competitor is preferred."
+    },
+    "G021": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation": {
+        "claim": "offers 24-hour emergency repair",
+        "state": "INACCURATE"
+      },
+      "accepted_alternatives": [],
+      "rationale": "The target is included based on a false decision-material service-hours claim."
+    },
+    "G022": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation": {
+        "claim": "has no call-out fee",
+        "state": "MATERIALLY_MISLEADING"
+      },
+      "accepted_alternatives": [],
+      "rationale": "The claim omits a material condition and can alter selection."
+    },
+    "G023": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation": {
+        "claim": "installs ceiling fans",
+        "state": "VERIFIED"
+      },
+      "accepted_alternatives": [],
+      "rationale": "The decision-material service claim matches the Source of Record."
+    },
+    "G024": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation": {
+        "claim": "usually has same-day appointments",
+        "state": "UNVERIFIED"
+      },
+      "accepted_alternatives": [],
+      "rationale": "The material claim cannot be confirmed from an authoritative source."
+    },
+    "G025": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": "UNCONDITIONAL",
+      "adverse_subtype": null,
+      "claim_validation": {
+        "status": "NO_CLAIM_EVALUATED"
+      },
+      "accepted_alternatives": [],
+      "rationale": "The recommendation contains no explicit factual Decision-Material Claim to validate."
+    },
+    "G026": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation": {
+        "claim": "offers a five-year warranty",
+        "state": "UNVERIFIED"
+      },
+      "accepted_alternatives": [],
+      "rationale": "Credible authoritative sources conflict with no established controlling source."
+    },
+    "G027": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation": {
+        "claim": "offers free emergency visits",
+        "state": "INACCURATE"
+      },
+      "accepted_alternatives": [],
+      "rationale": "Citation is observed, but it does not make the factual claim true."
+    },
+    "G028": {
+      "expected_observation_states": {
+        "RETRIEVED": "OBSERVED",
+        "MENTIONED": "NOT_OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "NOT_OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "Pre-response evidence establishes retrieval even though the target does not appear in the answer."
+    },
+    "G029": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "Visible citation does not establish the pre-response retrieval state."
+    },
+    "G030": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": "CONDITIONAL",
+      "adverse_subtype": null,
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "Recommendation is conditional and the condition is decision material."
+    },
+    "G031": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "The target is included in the Decision Set but no entity is explicitly favored."
+    },
+    "G032": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": "NEGATIVE_CHARACTERIZATION",
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "The target is still a legitimate candidate while receiving decision-relevant negative treatment."
+    },
+    "G033": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": "UNCONDITIONAL",
+      "adverse_subtype": null,
+      "claim_validation": {
+        "claim": "holds the required electrical license",
+        "state": "INACCURATE"
+      },
+      "accepted_alternatives": [],
+      "rationale": "Recommendation is observed independently of factual accuracy; the supporting claim is inaccurate."
+    },
+    "G034": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "OBSERVED",
+        "RECOMMENDED": "OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": "CONDITIONAL",
+      "adverse_subtype": null,
+      "claim_validation": {
+        "claim": "native Salesforce integration",
+        "state": "VERIFIED"
+      },
+      "accepted_alternatives": [],
+      "rationale": "The target is conditionally recommended and the material feature claim is verified."
+    },
+    "G035": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "NOT_OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": "STEER_AWAY",
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "The response explicitly steers the user away because sufficient evidence is unavailable."
+    },
+    "G036": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "NOT_OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": "STEER_AWAY",
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "Explicit avoid language is adverse treatment."
+    },
+    "G037": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "NOT_OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": "DISQUALIFICATION",
+      "claim_validation": {
+        "claim": "not licensed for gas work",
+        "state": "VERIFIED"
+      },
+      "accepted_alternatives": [],
+      "rationale": "The target is disqualified for the represented need, and the material claim is verified."
+    },
+    "G038": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "NOT_OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": "DISQUALIFICATION",
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "The response disqualifies the target from the geographic need."
+    },
+    "G039": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "NOT_OBSERVED",
+        "RECOMMENDED": "NOT_OBSERVED",
+        "ADVERSELY_TREATED": "NOT_OBSERVED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "Capability for an unrelated service does not satisfy the represented roof-repair need."
+    },
+    "G040": {
+      "expected_observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "OBSERVED",
+        "CITED": "NOT_OBSERVED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation": null,
+      "accepted_alternatives": [],
+      "rationale": "Mention is observable, but the incomplete output does not establish the target's decision role."
+    },
+    "G041": {
+      "core_conformant": false,
+      "defect_codes": [
+        "CORE-5",
+        "CORE-12"
+      ],
+      "rationale": "ANY_OBSERVED requires the execution-level result at Equal Prominence."
+    },
+    "G042": {
+      "core_conformant": false,
+      "defect_codes": [
+        "CORE-6"
+      ],
+      "rationale": "Below 50% Determination Coverage, raw all-execution counts must be the primary presentation."
+    },
+    "G043": {
+      "core_conformant": false,
+      "defect_codes": [
+        "CORE-4"
+      ],
+      "rationale": "Branded and non-branded results must remain separately visible; branded performance cannot establish category discovery."
+    },
+    "G044": {
+      "core_conformant": false,
+      "defect_codes": [
+        "CORE-3",
+        "CORE-1"
+      ],
+      "rationale": "Entity-informed prompts are allowed, but the result cannot be generalized as neutral market visibility."
+    },
+    "G045": {
+      "core_conformant": false,
+      "defect_codes": [
+        "CORE-9"
+      ],
+      "rationale": "Comparison entities were selected according to prior observed weak performance."
+    },
+    "G046": {
+      "core_conformant": false,
+      "defect_codes": [
+        "CORE-11"
+      ],
+      "rationale": "The entire artifact, including its title, must not imply causality without causal evidence."
+    },
+    "G047": {
+      "core_conformant": false,
+      "defect_codes": [
+        "CORE-12"
+      ],
+      "rationale": "Controlled derivative artifacts must preserve interpretation-critical qualifiers or stop implying USO conformance."
+    },
+    "G048": {
+      "core_conformant": false,
+      "defect_codes": [
+        "FULL_PROTOCOL_AUDIT_INTEGRITY"
+      ],
+      "rationale": "The audit sample is predictable at record-creation time and fails the post-ledger non-predictability control."
+    },
+    "G049": {
+      "core_conformant": false,
+      "defect_codes": [
+        "CORE-1",
+        "CORE-10"
+      ],
+      "rationale": "A selected system set must not be presented as universal AI behavior."
+    },
+    "G050": {
+      "core_conformant": false,
+      "defect_codes": [
+        "CORE-8"
+      ],
+      "rationale": "Exclusion criteria must pre-exist execution and must not operate as an outcome filter."
+    }
+  }
+}

@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use the USO Evidence Protocol, please cite this repository and the applicable released version."
+title: "USO Evidence Protocol"
+type: software
+authors:
+  - family-names: "MacFarland"
+    given-names: "A. L."
+version: "0.9.5"
+date-released: "2026-08-08"
+license: "CC-BY-4.0"
+repository-code: "PENDING"

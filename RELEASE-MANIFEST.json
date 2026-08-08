@@ -1,0 +1,31 @@
+{
+  "package": "USO Public Candidate Release",
+  "protocol_version": "0.9.5",
+  "core_version": "0.2",
+  "schema_versions": {
+    "evidence": "0.1",
+    "test_manifest": "0.1",
+    "test_registry": "0.1",
+    "report": "0.1",
+    "gold_response": "0.1"
+  },
+  "gold_test_set_version": "0.1",
+  "reference_validator_version": "0.1",
+  "status": "Final Candidate Specification package; independent validation pending",
+  "completed": {
+    "machine_readable_schemas": true,
+    "synthetic_end_to_end_example": true,
+    "reference_validator": true,
+    "initial_conformance_suite": true,
+    "gold_test_set": true,
+    "independent_validation_protocols": true
+  },
+  "pending_external": [
+    "independent human classification study",
+    "independent implementation",
+    "independent materiality/adversarial review",
+    "empirical inter-rater analysis",
+    "canonical public repository publication",
+    "DOI archival release"
+  ]
+}

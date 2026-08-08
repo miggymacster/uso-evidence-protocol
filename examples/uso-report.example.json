@@ -1,0 +1,155 @@
+{
+  "schema_version": "0.1",
+  "protocol_version": "0.9.5",
+  "core_version": "0.2",
+  "report_id": "REPORT-EXAMPLE-001",
+  "test_id": "TEST-EXAMPLE-001",
+  "test_family_id": "TF-EXAMPLE-001",
+  "generated_at": "2026-08-08T13:05:00Z",
+  "conformance_level": "FULL_CONFORMANCE",
+  "unmet_requirements": [],
+  "scope_of_measurement": {
+    "prompt_domain": "Local emergency repair provider selection",
+    "geographic_scope": "Greenville, South Carolina, US",
+    "service_or_market_scope": "Emergency repair services",
+    "language": "English",
+    "locale": "en-US",
+    "systems_tested": [
+      "Example AI System"
+    ],
+    "systems_intentionally_excluded": [],
+    "system_selection_scope": "One consumer AI system for schema demonstration only.",
+    "prompt_provenance": [
+      "SEARCH_QUERY_DATA"
+    ],
+    "prompt_construction_modes": [
+      "ENTITY_INDEPENDENT"
+    ],
+    "prompt_selection_criterion": "Predeclared non-branded emergency-repair purchase-consideration query.",
+    "prompt_class_counts": {
+      "branded": 0,
+      "non_branded": 1
+    },
+    "valid_execution_count": 3,
+    "observation_period_start": "2026-08-08T12:10:00Z",
+    "observation_period_end": "2026-08-08T12:30:00Z"
+  },
+  "observation_metrics": [
+    {
+      "observation_state": "INCLUDED",
+      "system_scope": {
+        "scope_type": "SINGLE_SYSTEM",
+        "system_name": "Example AI System",
+        "formula": null,
+        "weighting_basis": null,
+        "weights": {}
+      },
+      "execution_level": {
+        "observed": 2,
+        "not_observed": 1,
+        "not_established": 0,
+        "valid_executions": 3,
+        "determinable_executions": 3,
+        "determination_coverage": 1.0,
+        "rate_among_determinable": 0.6666666666666666
+      },
+      "prompt_level": {
+        "reduction_rule": "ANY_OBSERVED",
+        "observed_prompts": 1,
+        "total_prompts": 1,
+        "rate": 1.0
+      },
+      "primary_presentation": "RATE",
+      "qualifiers": [
+        "Execution-level result shown with prompt-level ANY_OBSERVED result."
+      ]
+    },
+    {
+      "observation_state": "RECOMMENDED",
+      "system_scope": {
+        "scope_type": "SINGLE_SYSTEM",
+        "system_name": "Example AI System",
+        "formula": null,
+        "weighting_basis": null,
+        "weights": {}
+      },
+      "execution_level": {
+        "observed": 1,
+        "not_observed": 2,
+        "not_established": 0,
+        "valid_executions": 3,
+        "determinable_executions": 3,
+        "determination_coverage": 1.0,
+        "rate_among_determinable": 0.3333333333333333
+      },
+      "prompt_level": {
+        "reduction_rule": "ANY_OBSERVED",
+        "observed_prompts": 1,
+        "total_prompts": 1,
+        "rate": 1.0
+      },
+      "primary_presentation": "RATE",
+      "qualifiers": [
+        "Prompt-level ANY_OBSERVED is not audience demand or market prevalence."
+      ]
+    },
+    {
+      "observation_state": "ADVERSELY_TREATED",
+      "system_scope": {
+        "scope_type": "SINGLE_SYSTEM",
+        "system_name": "Example AI System",
+        "formula": null,
+        "weighting_basis": null,
+        "weights": {}
+      },
+      "execution_level": {
+        "observed": 1,
+        "not_observed": 2,
+        "not_established": 0,
+        "valid_executions": 3,
+        "determinable_executions": 3,
+        "determination_coverage": 1.0,
+        "rate_among_determinable": 0.3333333333333333
+      },
+      "prompt_level": null,
+      "primary_presentation": "RATE",
+      "qualifiers": []
+    }
+  ],
+  "validation_summary": {
+    "decision_material_claims_total": 1,
+    "claim_outcomes": {
+      "verified": 1,
+      "inaccurate": 0,
+      "materially_misleading": 0,
+      "unverified": 0
+    },
+    "executions_no_claim_evaluated": 2,
+    "warning_labels": []
+  },
+  "adverse_treatment_summary": {
+    "observed": 1,
+    "not_observed": 2,
+    "not_established": 0
+  },
+  "comparison_summary": null,
+  "exclusions_summary": {
+    "excluded_executions": 0,
+    "total_attempted_executions": 3,
+    "exclusion_rate": 0.0,
+    "reason_counts": {}
+  },
+  "prior_test_disclosures": [],
+  "causal_status": "OBSERVATIONAL_ONLY",
+  "integrity_declaration": "This synthetic report includes all valid executions defined by the declared Test Manifest; execution counts and aggregation rules were established before formal testing; no favorable outcome-based prompt or comparison selection was used; required scope and evidence qualifiers are retained.",
+  "interpretation": "These results describe one synthetic prompt executed three times on one synthetic system. They do not establish market visibility, audience demand, consumer preference, or business impact.",
+  "authorized_derivative_requirements": [
+    "Preserve execution-level results with ANY_OBSERVED prompt-level metrics.",
+    "Preserve system and prompt scope."
+  ],
+  "source_references": {
+    "manifest": "uso-test-manifest.json",
+    "registry": "uso-test-registry.json",
+    "evidence": "uso-evidence.json"
+  }
+}

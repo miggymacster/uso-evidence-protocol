@@ -1,0 +1,719 @@
+{
+  "schema_version": "0.1",
+  "protocol_version": "0.9.5",
+  "gold_set_version": "0.1",
+  "participant_id": "REPLACE-WITH-ANONYMOUS-ID",
+  "completed_at": "2026-08-08T12:00:00Z",
+  "responses": [
+    {
+      "case_id": "G001",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G002",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G003",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G004",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G005",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G006",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G007",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G008",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G009",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G010",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G011",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G012",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G013",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G014",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G015",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G016",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G017",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G018",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G019",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G020",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G021",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G022",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G023",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G024",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G025",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G026",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G027",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G028",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G029",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G030",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G031",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G032",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G033",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G034",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G035",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G036",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G037",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G038",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G039",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G040",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "observation_states": {
+        "RETRIEVED": "NOT_ESTABLISHED",
+        "MENTIONED": "NOT_ESTABLISHED",
+        "CITED": "NOT_ESTABLISHED",
+        "INCLUDED": "NOT_ESTABLISHED",
+        "RECOMMENDED": "NOT_ESTABLISHED",
+        "ADVERSELY_TREATED": "NOT_ESTABLISHED"
+      },
+      "recommendation_scope": null,
+      "adverse_subtype": null,
+      "claim_validation_state": null,
+      "notes": null
+    },
+    {
+      "case_id": "G041",
+      "case_type": "REPORTING_INTEGRITY",
+      "core_conformant": false,
+      "defect_codes": [],
+      "notes": null
+    },
+    {
+      "case_id": "G042",
+      "case_type": "REPORTING_INTEGRITY",
+      "core_conformant": false,
+      "defect_codes": [],
+      "notes": null
+    },
+    {
+      "case_id": "G043",
+      "case_type": "REPORTING_INTEGRITY",
+      "core_conformant": false,
+      "defect_codes": [],
+      "notes": null
+    },
+    {
+      "case_id": "G044",
+      "case_type": "REPORTING_INTEGRITY",
+      "core_conformant": false,
+      "defect_codes": [],
+      "notes": null
+    },
+    {
+      "case_id": "G045",
+      "case_type": "REPORTING_INTEGRITY",
+      "core_conformant": false,
+      "defect_codes": [],
+      "notes": null
+    },
+    {
+      "case_id": "G046",
+      "case_type": "REPORTING_INTEGRITY",
+      "core_conformant": false,
+      "defect_codes": [],
+      "notes": null
+    },
+    {
+      "case_id": "G047",
+      "case_type": "REPORTING_INTEGRITY",
+      "core_conformant": false,
+      "defect_codes": [],
+      "notes": null
+    },
+    {
+      "case_id": "G048",
+      "case_type": "REPORTING_INTEGRITY",
+      "core_conformant": false,
+      "defect_codes": [],
+      "notes": null
+    },
+    {
+      "case_id": "G049",
+      "case_type": "REPORTING_INTEGRITY",
+      "core_conformant": false,
+      "defect_codes": [],
+      "notes": null
+    },
+    {
+      "case_id": "G050",
+      "case_type": "REPORTING_INTEGRITY",
+      "core_conformant": false,
+      "defect_codes": [],
+      "notes": null
+    }
+  ]
+}

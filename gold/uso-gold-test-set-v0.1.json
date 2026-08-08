@@ -1,0 +1,673 @@
+{
+  "title": "USO Gold Test Set v0.1",
+  "protocol_version": "0.9.5",
+  "core_version": "0.2",
+  "status": "Candidate reference set",
+  "case_count": 50,
+  "instructions": "Classifiers should receive this file without the answer key. Use only the case evidence and the public candidate specification. Do not infer hidden facts. Record NOT_ESTABLISHED where the supplied evidence is insufficient.",
+  "cases": [
+    {
+      "case_id": "G001",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "citation_without_mention",
+      "target_entity": "ExampleCo",
+      "prompt": "Who offers emergency repair in Greenville?",
+      "represented_need": "Identify providers offering emergency repair in Greenville.",
+      "response": "Several providers serve the area. [ExampleCo official site]",
+      "visible_citations": [
+        {
+          "source": "ExampleCo official site",
+          "url": "https://example.com"
+        }
+      ],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G002",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "incidental_mention",
+      "target_entity": "ExampleCo",
+      "prompt": "What should I consider when hiring an emergency repair company?",
+      "represented_need": "Explain selection criteria for an emergency repair provider.",
+      "response": "Licensing and response time matter. ExampleCo was founded in 1998, which is not by itself a reason to hire it.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G003",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "inclusion_without_recommendation",
+      "target_entity": "ExampleCo",
+      "prompt": "Which companies can handle emergency repair?",
+      "represented_need": "Identify legitimate candidates for emergency repair.",
+      "response": "ExampleCo and RapidFix both offer emergency repair services.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G004",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "explicit_recommendation",
+      "target_entity": "ExampleCo",
+      "prompt": "Which company should I choose for emergency repair?",
+      "represented_need": "Select a provider for emergency repair.",
+      "response": "I recommend ExampleCo for this job.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G005",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "conditional_recommendation",
+      "target_entity": "ExampleCo",
+      "prompt": "Which company should I choose for emergency repair?",
+      "represented_need": "Select a provider for emergency repair.",
+      "response": "Choose ExampleCo if 24-hour availability is your top priority.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G006",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "comparative_recommendation",
+      "target_entity": "ExampleCo",
+      "prompt": "ExampleCo or RapidFix for emergency repair?",
+      "represented_need": "Choose between ExampleCo and RapidFix.",
+      "response": "Between the two, ExampleCo is the better choice for emergency response.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G007",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "list_order_not_recommendation",
+      "target_entity": "ExampleCo",
+      "prompt": "List emergency repair providers.",
+      "represented_need": "List providers that can perform emergency repair.",
+      "response": "1. ExampleCo\n2. RapidFix\n3. ServiceHub",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G008",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "positive_description_not_recommendation",
+      "target_entity": "ExampleCo",
+      "prompt": "Which companies can perform emergency repair?",
+      "represented_need": "Identify legitimate emergency repair providers.",
+      "response": "ExampleCo is well established and offers emergency repair. RapidFix also provides the service.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G009",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "steer_away",
+      "target_entity": "ExampleCo",
+      "prompt": "Should I use ExampleCo for emergency repair?",
+      "represented_need": "Decide whether to select ExampleCo for emergency repair.",
+      "response": "I would avoid ExampleCo for this job and choose another provider.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G010",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "negative_characterization",
+      "target_entity": "ExampleCo",
+      "prompt": "Tell me about ExampleCo as an emergency repair option.",
+      "represented_need": "Evaluate ExampleCo as an emergency repair option.",
+      "response": "ExampleCo is an option, but its emergency response is described as unreliable.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G011",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "disqualification",
+      "target_entity": "ExampleCo",
+      "prompt": "Can ExampleCo provide emergency plumbing in Greenville?",
+      "represented_need": "Determine whether ExampleCo qualifies for emergency plumbing in Greenville.",
+      "response": "No. ExampleCo does not provide plumbing services, so it is not eligible for this need.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G012",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "entity_ambiguity",
+      "target_entity": "Atlas",
+      "prompt": "Is Atlas good for emergency repair?",
+      "represented_need": "Evaluate the entity named Atlas for emergency repair.",
+      "response": "Atlas has emergency repair options.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": "Two unrelated local companies are both named Atlas and the response provides no disambiguating information.",
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G013",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "entity_disambiguated",
+      "target_entity": "Atlas Repair LLC",
+      "prompt": "Is Atlas Repair LLC on Main Street a good emergency repair option?",
+      "represented_need": "Evaluate Atlas Repair LLC on Main Street for emergency repair.",
+      "response": "Atlas Repair LLC on Main Street provides emergency repair and is worth considering.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G014",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "represented_need_mismatch_luxury",
+      "target_entity": "ExampleCar",
+      "prompt": "What luxury sedan should I buy?",
+      "represented_need": "Select a luxury sedan.",
+      "response": "ExampleCar is a cheaper economy model that people sometimes search for alongside luxury sedans.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G015",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "represented_need_posthoc_broadening",
+      "target_entity": "ExampleCar",
+      "prompt": "Which luxury sedan should I buy?",
+      "represented_need": "Select a luxury sedan.",
+      "response": "ExampleCar is not a luxury sedan, but it is an inexpensive way to get transportation.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G016",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "clear_inclusion",
+      "target_entity": "ExampleTool",
+      "prompt": "What tools can I use for project scheduling?",
+      "represented_need": "Identify tools that can perform project scheduling.",
+      "response": "ExampleTool can handle project scheduling and is one of several options to evaluate.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G017",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "search_interest_not_inclusion",
+      "target_entity": "ExampleTool",
+      "prompt": "What tools should I use for project scheduling?",
+      "represented_need": "Identify legitimate tools for project scheduling.",
+      "response": "People also search for ExampleTool when researching this topic.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G018",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "background_history",
+      "target_entity": "ExampleTool",
+      "prompt": "Which project scheduling tools should I consider?",
+      "represented_need": "Identify project scheduling candidates.",
+      "response": "The category evolved rapidly after ExampleTool launched in 2012.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G019",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "conditional_recommendation_price",
+      "target_entity": "ExampleTool",
+      "prompt": "Which project scheduling tool should I choose?",
+      "represented_need": "Select a project scheduling tool.",
+      "response": "ExampleTool is my pick if keeping monthly cost below $20 is essential.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G020",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "competitor_recommended_target_adverse",
+      "target_entity": "ExampleTool",
+      "prompt": "ExampleTool or RivalTool for enterprise scheduling?",
+      "represented_need": "Choose between ExampleTool and RivalTool for enterprise scheduling.",
+      "response": "Choose RivalTool. ExampleTool lacks the enterprise controls required for this use case.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G021",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "inaccurate_decision_claim",
+      "target_entity": "ExampleCo",
+      "prompt": "Which provider offers 24-hour emergency repair?",
+      "represented_need": "Identify a provider offering 24-hour emergency repair.",
+      "response": "ExampleCo offers 24-hour emergency repair and is an option.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": {
+        "fact": "ExampleCo service hours are 8 AM to 6 PM only."
+      },
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G022",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "materially_misleading_claim",
+      "target_entity": "ExampleCo",
+      "prompt": "Which provider has no call-out fee?",
+      "represented_need": "Identify a provider with no call-out fee.",
+      "response": "ExampleCo has no call-out fee and is worth considering.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": {
+        "fact": "ExampleCo waives the call-out fee only for members; non-members pay $99."
+      },
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G023",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "verified_claim",
+      "target_entity": "ExampleCo",
+      "prompt": "Which provider installs ceiling fans?",
+      "represented_need": "Identify a provider that installs ceiling fans.",
+      "response": "ExampleCo installs ceiling fans and is one option.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": {
+        "fact": "ExampleCo official service page lists ceiling fan installation."
+      },
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G024",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "unverified_claim",
+      "target_entity": "ExampleCo",
+      "prompt": "Which provider has same-day availability?",
+      "represented_need": "Identify a provider with same-day availability.",
+      "response": "ExampleCo usually has same-day appointments and is a candidate.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": {
+        "fact": "No authoritative source states whether same-day availability is offered."
+      },
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G025",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "no_claim_evaluated",
+      "target_entity": "ExampleCo",
+      "prompt": "Which provider should I choose?",
+      "represented_need": "Select a provider.",
+      "response": "I prefer ExampleCo for this request.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G026",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "conflicting_sources",
+      "target_entity": "ExampleCo",
+      "prompt": "Which provider offers a five-year warranty?",
+      "represented_need": "Identify a provider offering a five-year warranty.",
+      "response": "ExampleCo offers a five-year warranty and is an option.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": {
+        "fact": "Official product page says 5 years; current written warranty PDF says 2 years; no controlling version can be established."
+      },
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G027",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "citation_does_not_support_claim",
+      "target_entity": "ExampleCo",
+      "prompt": "Which provider offers free emergency visits?",
+      "represented_need": "Identify a provider offering free emergency visits.",
+      "response": "ExampleCo offers free emergency visits and is a good option. [ExampleCo pricing]",
+      "visible_citations": [
+        {
+          "source": "ExampleCo pricing",
+          "url": "https://example.com/pricing"
+        }
+      ],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": {
+        "fact": "The cited pricing page lists a $99 emergency visit fee."
+      },
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G028",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "retrieved_not_cited",
+      "target_entity": "ExampleCo",
+      "prompt": "Which provider should I consider?",
+      "represented_need": "Identify a candidate provider.",
+      "response": "RapidFix is one provider to consider.",
+      "visible_citations": [],
+      "retrieval_evidence": "TARGET_SOURCE_IN_PRE_RESPONSE_CANDIDATE_SET",
+      "source_of_record": null,
+      "context_note": "Pre-response retrieval log shows ExampleCo official page was retrieved, but the response never identifies ExampleCo.",
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G029",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "citation_not_retrieval_proof",
+      "target_entity": "ExampleCo",
+      "prompt": "Which provider should I consider?",
+      "represented_need": "Identify a candidate provider.",
+      "response": "ExampleCo is one option. [ExampleCo official site]",
+      "visible_citations": [
+        {
+          "source": "ExampleCo official site",
+          "url": "https://example.com"
+        }
+      ],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G030",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "recommendation_condition_retention",
+      "target_entity": "ExampleCo",
+      "prompt": "Which provider should I use?",
+      "represented_need": "Select a provider.",
+      "response": "ExampleCo is the best choice only if you already hold its premium membership.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G031",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "multiple_options_no_favoring",
+      "target_entity": "ExampleCo",
+      "prompt": "Which provider should I use?",
+      "represented_need": "Select or identify viable providers.",
+      "response": "ExampleCo, RapidFix, and ServiceHub are all reasonable options.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G032",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "included_and_adversely_treated",
+      "target_entity": "ExampleCo",
+      "prompt": "Which providers can handle this job?",
+      "represented_need": "Identify viable providers for the job.",
+      "response": "ExampleCo can do the work, but its unusually long response time makes it a weak choice.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G033",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "recommendation_with_inaccurate_claim",
+      "target_entity": "ExampleCo",
+      "prompt": "Which provider should I choose for a licensed electrical repair?",
+      "represented_need": "Select a provider for licensed electrical repair.",
+      "response": "I recommend ExampleCo because it holds the required electrical license.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": {
+        "fact": "The licensing registry contains no electrical license for ExampleCo."
+      },
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G034",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "conditional_recommendation_feature",
+      "target_entity": "ExampleTool",
+      "prompt": "Which scheduling tool should I choose?",
+      "represented_need": "Select a scheduling tool.",
+      "response": "Use ExampleTool if native Salesforce integration is mandatory.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": {
+        "fact": "ExampleTool official integrations page confirms native Salesforce integration."
+      },
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G035",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "insufficient_information_steer_away",
+      "target_entity": "ExampleCo",
+      "prompt": "Should I choose ExampleCo?",
+      "represented_need": "Decide whether to select ExampleCo.",
+      "response": "I do not have enough reliable information to recommend ExampleCo, so I would choose a provider with verifiable credentials.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G036",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "explicit_avoid",
+      "target_entity": "ExampleCo",
+      "prompt": "Is ExampleCo a good option?",
+      "represented_need": "Evaluate whether to select ExampleCo.",
+      "response": "Avoid ExampleCo for this project.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G037",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "ineligible",
+      "target_entity": "ExampleCo",
+      "prompt": "Can ExampleCo perform licensed gas work?",
+      "represented_need": "Determine whether ExampleCo qualifies for licensed gas work.",
+      "response": "ExampleCo is not licensed for gas work and should not be selected for this task.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": {
+        "fact": "Licensing registry confirms no gas-work license."
+      },
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G038",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "geographic_disqualification",
+      "target_entity": "ExampleCo",
+      "prompt": "Who can repair my home in Greenville?",
+      "represented_need": "Identify a provider serving Greenville.",
+      "response": "ExampleCo serves Columbia only and does not serve Greenville.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G039",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "different_need",
+      "target_entity": "ExampleCo",
+      "prompt": "Which company should repair my roof?",
+      "represented_need": "Select a roof-repair provider.",
+      "response": "ExampleCo is highly rated for interior painting, but that is a different service.",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": null,
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G040",
+      "case_type": "EXECUTION_CLASSIFICATION",
+      "category": "truncated_decision_role",
+      "target_entity": "ExampleCo",
+      "prompt": "Which provider should I choose?",
+      "represented_need": "Select a provider.",
+      "response": "ExampleCo is...",
+      "visible_citations": [],
+      "retrieval_evidence": "UNKNOWN",
+      "source_of_record": null,
+      "context_note": "The system output terminated unexpectedly after the target name; the available text is the complete retained output.",
+      "participant_task": "Classify RETRIEVED, MENTIONED, CITED, INCLUDED, RECOMMENDED, and ADVERSELY_TREATED as OBSERVED, NOT_OBSERVED, or NOT_ESTABLISHED. Where applicable classify recommendation scope, adverse subtype, and claim validation."
+    },
+    {
+      "case_id": "G041",
+      "case_type": "REPORTING_INTEGRITY",
+      "category": "prompt_vs_execution_concealment",
+      "scenario": "A report headlines 'Recommended on 18/20 prompts (90%)' using ANY_OBSERVED. There were 60 valid executions and only 22 RECOMMENDED=OBSERVED. The execution-level 22/60 result appears only in an appendix.",
+      "participant_task": "Determine whether the artifact is USO Core-conformant and identify the material defect."
+    },
+    {
+      "case_id": "G042",
+      "case_type": "REPORTING_INTEGRITY",
+      "category": "low_determination_coverage",
+      "scenario": "A report headlines '100% recommendation rate.' Raw data: 1 OBSERVED, 0 NOT_OBSERVED, 99 NOT_ESTABLISHED. The report also states Determination Coverage=1%, but beneath the headline.",
+      "participant_task": "Determine whether the artifact is USO Core-conformant and identify the material defect."
+    },
+    {
+      "case_id": "G043",
+      "case_type": "REPORTING_INTEGRITY",
+      "category": "branded_nonbranded_conflation",
+      "scenario": "A test has 15 branded and 5 non-branded prompts. The report combines them and states '80% category visibility' without showing branded and non-branded components.",
+      "participant_task": "Determine whether the artifact is USO Core-conformant and identify the material defect."
+    },
+    {
+      "case_id": "G044",
+      "case_type": "REPORTING_INTEGRITY",
+      "category": "entity_informed_prompt_overclaim",
+      "scenario": "Twenty non-branded prompts were written around the client's known differentiators. No exploratory screen occurred. The report discloses ENTITY_INFORMED construction but headlines '95% non-branded market visibility.'",
+      "participant_task": "Determine whether the artifact is USO Core-conformant and identify the material defect."
+    },
+    {
+      "case_id": "G045",
+      "case_type": "REPORTING_INTEGRITY",
+      "category": "comparison_universe_gerrymander",
+      "scenario": "An exploratory screen identifies 20 competitors. The analyst selects the five weakest performers for the Formal Comparison and reports 'highest recommendation rate among tested competitors.'",
+      "participant_task": "Determine whether the artifact is USO Core-conformant and identify the material defect."
+    },
+    {
+      "case_id": "G046",
+      "case_type": "REPORTING_INTEGRITY",
+      "category": "causal_framing",
+      "scenario": "A before/after report uses comparable test conditions and accurately reports 20% then 80%. Its title is 'Impact of Project Upward on AI Visibility' and the body says only 'increased following remediation.'",
+      "participant_task": "Determine whether the artifact is USO Core-conformant and identify the material defect."
+    },
+    {
+      "case_id": "G047",
+      "case_type": "REPORTING_INTEGRITY",
+      "category": "derivative_qualifier_stripping",
+      "scenario": "The full report is conformant. The same agency produces a sales slide with only '90% AI Recommendation Rate' and a USO logo, omitting execution rate, system scope, and Determination Coverage.",
+      "participant_task": "Determine whether the artifact is USO Core-conformant and identify the material defect."
+    },
+    {
+      "case_id": "G048",
+      "case_type": "REPORTING_INTEGRITY",
+      "category": "predictable_audit_sampling",
+      "scenario": "An automated classifier is audited using every 10th record after sorting records alphabetically. The sampling rule was known before records were created, allowing the audited positions to be anticipated.",
+      "participant_task": "Determine whether the artifact is USO Core-conformant and identify the material defect."
+    },
+    {
+      "case_id": "G049",
+      "case_type": "REPORTING_INTEGRITY",
+      "category": "partial_system_scope_overclaim",
+      "scenario": "Only one AI system is tested. The scope block names that system, but the headline states 'AI recommends ExampleCo 70% of the time.'",
+      "participant_task": "Determine whether the artifact is USO Core-conformant and identify the material defect."
+    },
+    {
+      "case_id": "G050",
+      "case_type": "REPORTING_INTEGRITY",
+      "category": "posthoc_exclusion",
+      "scenario": "Three planned executions produce two unfavorable results and one favorable result. After seeing the outputs, the analyst creates a 'low-quality answer' exclusion rule and removes the two unfavorable executions.",
+      "participant_task": "Determine whether the artifact is USO Core-conformant and identify the material defect."
+    }
+  ]
+}

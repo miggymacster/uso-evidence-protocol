@@ -1,0 +1,800 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:uso:report-schema:0.1",
+  "title": "USO Report Schema v0.1",
+  "description": "Machine-readable reporting output for USO Evidence Protocol v0.9.5 and USO Reporting Integrity Core v0.2. Cross-record reconciliation is performed by the USO reference validator.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "protocol_version",
+    "core_version",
+    "report_id",
+    "test_id",
+    "test_family_id",
+    "generated_at",
+    "conformance_level",
+    "scope_of_measurement",
+    "observation_metrics",
+    "exclusions_summary",
+    "integrity_declaration",
+    "interpretation"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1"
+    },
+    "protocol_version": {
+      "type": "string",
+      "const": "0.9.5"
+    },
+    "core_version": {
+      "type": "string",
+      "const": "0.2"
+    },
+    "report_id": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "test_id": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "test_family_id": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "conformance_level": {
+      "type": "string",
+      "enum": [
+        "FULL_CONFORMANCE",
+        "PARTIAL_IMPLEMENTATION",
+        "EXPLORATORY_USE"
+      ]
+    },
+    "unmet_requirements": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/nonEmptyString"
+      }
+    },
+    "scope_of_measurement": {
+      "$ref": "#/$defs/scopeSummary"
+    },
+    "observation_metrics": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/observationMetric"
+      }
+    },
+    "validation_summary": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/validationSummary"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "adverse_treatment_summary": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/adverseSummary"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "comparison_summary": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/comparisonSummary"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "exclusions_summary": {
+      "$ref": "#/$defs/exclusionsSummary"
+    },
+    "prior_test_disclosures": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/priorTestDisclosure"
+      }
+    },
+    "causal_status": {
+      "type": "string",
+      "enum": [
+        "OBSERVATIONAL_ONLY",
+        "CAUSAL_EVIDENCE_SEPARATELY_ESTABLISHED",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "integrity_declaration": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "interpretation": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "authorized_derivative_requirements": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/nonEmptyString"
+      }
+    },
+    "source_references": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "manifest": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "registry": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "conformance_level": {
+            "const": "PARTIAL_IMPLEMENTATION"
+          }
+        },
+        "required": [
+          "conformance_level"
+        ]
+      },
+      "then": {
+        "required": [
+          "unmet_requirements"
+        ],
+        "properties": {
+          "unmet_requirements": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "conformance_level": {
+            "const": "FULL_CONFORMANCE"
+          }
+        },
+        "required": [
+          "conformance_level"
+        ]
+      },
+      "then": {
+        "properties": {
+          "unmet_requirements": {
+            "maxItems": 0
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scopeSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "prompt_domain",
+        "language",
+        "locale",
+        "systems_tested",
+        "system_selection_scope",
+        "prompt_provenance",
+        "prompt_construction_modes",
+        "prompt_class_counts",
+        "valid_execution_count"
+      ],
+      "properties": {
+        "prompt_domain": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "geographic_scope": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "service_or_market_scope": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "language": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "locale": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "systems_tested": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "systems_intentionally_excluded": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "system_name",
+              "reason"
+            ],
+            "properties": {
+              "system_name": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "reason": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          }
+        },
+        "system_selection_scope": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "prompt_provenance": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "prompt_construction_modes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "ENTITY_INDEPENDENT",
+              "ENTITY_INFORMED"
+            ]
+          }
+        },
+        "prompt_selection_criterion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "prompt_class_counts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "branded",
+            "non_branded"
+          ],
+          "properties": {
+            "branded": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "non_branded": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "valid_execution_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "observation_period_start": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "observation_period_end": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      }
+    },
+    "executionCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observed",
+        "not_observed",
+        "not_established",
+        "valid_executions",
+        "determinable_executions",
+        "determination_coverage",
+        "rate_among_determinable"
+      ],
+      "properties": {
+        "observed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "not_observed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "not_established": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "valid_executions": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "determinable_executions": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "determination_coverage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "rate_among_determinable": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "promptLevel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reduction_rule",
+        "observed_prompts",
+        "total_prompts",
+        "rate"
+      ],
+      "properties": {
+        "reduction_rule": {
+          "type": "string",
+          "enum": [
+            "ANY_OBSERVED",
+            "MAJORITY_OBSERVED",
+            "ALL_OBSERVED"
+          ]
+        },
+        "observed_prompts": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "total_prompts": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "rate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "systemMetricScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scope_type"
+      ],
+      "properties": {
+        "scope_type": {
+          "type": "string",
+          "enum": [
+            "SINGLE_SYSTEM",
+            "CROSS_SYSTEM"
+          ]
+        },
+        "system_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "formula": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "weighting_basis": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "weights": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "scope_type": {
+                "const": "SINGLE_SYSTEM"
+              }
+            },
+            "required": [
+              "scope_type"
+            ]
+          },
+          "then": {
+            "required": [
+              "system_name"
+            ],
+            "properties": {
+              "system_name": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "scope_type": {
+                "const": "CROSS_SYSTEM"
+              }
+            },
+            "required": [
+              "scope_type"
+            ]
+          },
+          "then": {
+            "required": [
+              "formula",
+              "weighting_basis",
+              "weights"
+            ],
+            "properties": {
+              "formula": {
+                "type": "string",
+                "minLength": 1
+              },
+              "weighting_basis": {
+                "type": "string",
+                "minLength": 1
+              },
+              "weights": {
+                "minProperties": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "observationMetric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observation_state",
+        "system_scope",
+        "execution_level",
+        "primary_presentation"
+      ],
+      "properties": {
+        "observation_state": {
+          "type": "string",
+          "enum": [
+            "RETRIEVED",
+            "MENTIONED",
+            "CITED",
+            "INCLUDED",
+            "RECOMMENDED",
+            "ADVERSELY_TREATED"
+          ]
+        },
+        "system_scope": {
+          "$ref": "#/$defs/systemMetricScope"
+        },
+        "execution_level": {
+          "$ref": "#/$defs/executionCounts"
+        },
+        "prompt_level": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/promptLevel"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "primary_presentation": {
+          "type": "string",
+          "enum": [
+            "RATE",
+            "RAW_COUNTS"
+          ]
+        },
+        "qualifiers": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "execution_level": {
+                "properties": {
+                  "determination_coverage": {
+                    "type": "number",
+                    "exclusiveMaximum": 0.5
+                  }
+                },
+                "required": [
+                  "determination_coverage"
+                ]
+              }
+            },
+            "required": [
+              "execution_level"
+            ]
+          },
+          "then": {
+            "properties": {
+              "primary_presentation": {
+                "const": "RAW_COUNTS"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "validationSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "decision_material_claims_total",
+        "claim_outcomes",
+        "executions_no_claim_evaluated"
+      ],
+      "properties": {
+        "decision_material_claims_total": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "claim_outcomes": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "verified",
+            "inaccurate",
+            "materially_misleading",
+            "unverified"
+          ],
+          "properties": {
+            "verified": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "inaccurate": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "materially_misleading": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "unverified": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "executions_no_claim_evaluated": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "warning_labels": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "UNVERIFIED DECISION-MATERIAL CLAIMS PRESENT",
+              "DECISION-MATERIAL CLAIMS NOT VALIDATED"
+            ]
+          }
+        }
+      }
+    },
+    "adverseSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observed",
+        "not_observed",
+        "not_established"
+      ],
+      "properties": {
+        "observed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "not_observed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "not_established": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "comparisonSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "universe_basis",
+        "entities_identified",
+        "entities_tested"
+      ],
+      "properties": {
+        "universe_basis": {
+          "type": "string",
+          "enum": [
+            "INDEPENDENT_EXTERNAL_SOURCE",
+            "ANALYST_DEFINED"
+          ]
+        },
+        "universe_definition": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "entities_identified": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "entities_tested": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "qualifying_entities_excluded": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "comparison_conditions": {
+          "type": "string",
+          "enum": [
+            "EQUIVALENT",
+            "NON_EQUIVALENT"
+          ]
+        },
+        "warning_labels": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "ANALYST-DEFINED COMPARISON UNIVERSE",
+              "NON-EQUIVALENT TEST CONDITIONS"
+            ]
+          }
+        }
+      }
+    },
+    "exclusionsSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "excluded_executions",
+        "total_attempted_executions",
+        "exclusion_rate"
+      ],
+      "properties": {
+        "excluded_executions": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "total_attempted_executions": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "exclusion_rate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "reason_counts": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "priorTestDisclosure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "test_id",
+        "date",
+        "disposition",
+        "relationship"
+      ],
+      "properties": {
+        "test_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "disposition": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "relationship": {
+          "type": "string",
+          "enum": [
+            "HIGHER",
+            "LOWER",
+            "SAME",
+            "NOT_DIRECTLY_COMPARABLE"
+          ]
+        }
+      }
+    }
+  }
+}

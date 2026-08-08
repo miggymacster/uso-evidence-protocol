@@ -1,0 +1,1195 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:uso:test-manifest-schema:0.1",
+  "title": "USO Test Manifest Schema v0.1",
+  "description": "Machine-readable Test Manifest for USO Evidence Protocol v0.9.5. Defines the formal or exploratory test before valid execution begins.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "protocol_version",
+    "manifest_version",
+    "test_id",
+    "test_family_id",
+    "test_type",
+    "created_at",
+    "target_entity",
+    "scope_of_measurement",
+    "systems",
+    "prompt_set",
+    "prompt_selection_criterion",
+    "planned_execution_design",
+    "classification_plan",
+    "validation_plan",
+    "exclusion_rules",
+    "aggregation_plan",
+    "reporting_purpose"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1"
+    },
+    "protocol_version": {
+      "type": "string",
+      "const": "0.9.5"
+    },
+    "manifest_version": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "supersedes_manifest_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "test_id": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "test_family_id": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "test_type": {
+      "type": "string",
+      "enum": [
+        "EXPLORATORY",
+        "FORMAL"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "first_valid_execution_must_not_precede": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp representing the earliest permitted first valid execution. Chronological enforcement is performed by a conformance validator."
+    },
+    "target_entity": {
+      "$ref": "#/$defs/entity"
+    },
+    "scope_of_measurement": {
+      "$ref": "#/$defs/scopeOfMeasurement"
+    },
+    "systems": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/systemSelection"
+      }
+    },
+    "prompt_set": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/manifestPrompt"
+      }
+    },
+    "prompt_selection_criterion": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "prompt_selection_basis": {
+      "type": "string",
+      "enum": [
+        "OBSERVED_CUSTOMER_LANGUAGE",
+        "SEARCH_QUERY_DATA",
+        "SALES_INTERACTION",
+        "SUPPORT_INTERACTION",
+        "KEYWORD_RESEARCH",
+        "RESEARCH_DATASET",
+        "RULE_BASED_SAMPLE",
+        "ANALYST_DEFINED",
+        "OTHER"
+      ]
+    },
+    "prior_target_outcome_data_visible_during_prompt_selection": {
+      "type": "boolean"
+    },
+    "prior_target_outcome_data_disclosure": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "planned_execution_design": {
+      "$ref": "#/$defs/executionDesign"
+    },
+    "comparison_plan": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/comparisonPlan"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "classification_plan": {
+      "$ref": "#/$defs/classificationPlan"
+    },
+    "validation_plan": {
+      "$ref": "#/$defs/validationPlan"
+    },
+    "exclusion_rules": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/exclusionRule"
+      }
+    },
+    "aggregation_plan": {
+      "$ref": "#/$defs/aggregationPlan"
+    },
+    "reporting_purpose": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "intended_conformance_level": {
+      "type": "string",
+      "enum": [
+        "FULL_CONFORMANCE",
+        "PARTIAL_IMPLEMENTATION",
+        "EXPLORATORY_USE"
+      ]
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "test_type": {
+            "const": "FORMAL"
+          }
+        },
+        "required": [
+          "test_type"
+        ]
+      },
+      "then": {
+        "required": [
+          "first_valid_execution_must_not_precede",
+          "intended_conformance_level"
+        ],
+        "properties": {
+          "intended_conformance_level": {
+            "enum": [
+              "FULL_CONFORMANCE",
+              "PARTIAL_IMPLEMENTATION"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "prior_target_outcome_data_visible_during_prompt_selection": {
+            "const": true
+          }
+        },
+        "required": [
+          "prior_target_outcome_data_visible_during_prompt_selection"
+        ]
+      },
+      "then": {
+        "required": [
+          "prior_target_outcome_data_disclosure"
+        ],
+        "properties": {
+          "prior_target_outcome_data_disclosure": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "prompt_set": {
+            "contains": {
+              "properties": {
+                "observation_states_to_classify": {
+                  "contains": {
+                    "enum": [
+                      "INCLUDED",
+                      "RECOMMENDED"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "observation_states_to_classify"
+              ]
+            }
+          }
+        },
+        "required": [
+          "prompt_set"
+        ]
+      },
+      "then": {
+        "properties": {
+          "prompt_set": {
+            "items": {
+              "allOf": [
+                {
+                  "if": {
+                    "properties": {
+                      "observation_states_to_classify": {
+                        "contains": {
+                          "enum": [
+                            "INCLUDED",
+                            "RECOMMENDED"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "observation_states_to_classify"
+                    ]
+                  },
+                  "then": {
+                    "required": [
+                      "represented_need"
+                    ],
+                    "properties": {
+                      "represented_need": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "test_type": {
+            "const": "FORMAL"
+          }
+        },
+        "required": [
+          "test_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "planned_execution_design": {
+            "required": [
+              "valid_executions_per_prompt_per_system",
+              "outcome_dependent_stopping_prohibited",
+              "outcome_dependent_continuation_prohibited"
+            ],
+            "properties": {
+              "outcome_dependent_stopping_prohibited": {
+                "const": true
+              },
+              "outcome_dependent_continuation_prohibited": {
+                "const": true
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "uriString": {
+      "type": "string",
+      "format": "uri"
+    },
+    "entity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entity_id",
+        "name"
+      ],
+      "properties": {
+        "entity_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "name": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "entity_type": {
+          "type": "string",
+          "enum": [
+            "ORGANIZATION",
+            "BRAND",
+            "PRODUCT",
+            "SERVICE",
+            "PERSON",
+            "PLACE",
+            "OTHER"
+          ]
+        },
+        "canonical_url": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/uriString"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "disambiguation_note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "scopeOfMeasurement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "prompt_domain",
+        "language",
+        "locale",
+        "prompt_construction_modes",
+        "prompt_provenance_categories",
+        "prompt_class_composition",
+        "system_selection_scope",
+        "execution_period"
+      ],
+      "properties": {
+        "prompt_domain": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "geographic_scope": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "service_or_market_scope": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "language": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "locale": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "prompt_construction_modes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "ENTITY_INDEPENDENT",
+              "ENTITY_INFORMED"
+            ]
+          }
+        },
+        "prompt_provenance_categories": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "OBSERVED_CUSTOMER_LANGUAGE",
+              "SEARCH_QUERY_DATA",
+              "SALES_INTERACTION",
+              "SUPPORT_INTERACTION",
+              "KEYWORD_RESEARCH",
+              "ANALYST_CONSTRUCTED",
+              "SYNTHETICALLY_GENERATED",
+              "RESEARCH_DATASET",
+              "OTHER"
+            ]
+          }
+        },
+        "prompt_class_composition": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "branded_count",
+            "non_branded_count"
+          ],
+          "properties": {
+            "branded_count": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "non_branded_count": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "other_class_counts": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "integer",
+                "minimum": 0
+              }
+            }
+          }
+        },
+        "system_selection_scope": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "systems_intentionally_excluded": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "system_name",
+              "reason"
+            ],
+            "properties": {
+              "system_name": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "reason": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          }
+        },
+        "execution_period": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "planned_start",
+            "planned_end"
+          ],
+          "properties": {
+            "planned_start": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "planned_end": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      }
+    },
+    "systemSelection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "system_name",
+        "selection_basis"
+      ],
+      "properties": {
+        "system_name": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "model_or_variant": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "interface": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "UI",
+            "API",
+            "OTHER",
+            null
+          ]
+        },
+        "selection_basis": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "authentication_state": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "AUTHENTICATED",
+            "UNAUTHENTICATED",
+            "UNKNOWN",
+            null
+          ]
+        },
+        "personalization_state": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "ENABLED",
+            "DISABLED",
+            "UNKNOWN",
+            null
+          ]
+        },
+        "memory_state": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "ENABLED",
+            "DISABLED",
+            "UNKNOWN",
+            null
+          ]
+        },
+        "geography": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "locale": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "language": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "access_limitation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "manifestPrompt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "prompt_id",
+        "prompt_text",
+        "prompt_class",
+        "prompt_provenance",
+        "prompt_construction_mode",
+        "observation_states_to_classify"
+      ],
+      "properties": {
+        "prompt_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "prompt_text": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "represented_need": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "prompt_class": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "BRANDED",
+              "NON_BRANDED",
+              "INFORMATIONAL",
+              "PROBLEM_RECOGNITION",
+              "COMPARISON",
+              "ALTERNATIVES",
+              "REPUTATION",
+              "TRANSACTIONAL",
+              "PURCHASE_CONSIDERATION",
+              "OTHER"
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "enum": [
+                  "BRANDED",
+                  "NON_BRANDED"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            }
+          ]
+        },
+        "prompt_provenance": {
+          "type": "string",
+          "enum": [
+            "OBSERVED_CUSTOMER_LANGUAGE",
+            "SEARCH_QUERY_DATA",
+            "SALES_INTERACTION",
+            "SUPPORT_INTERACTION",
+            "KEYWORD_RESEARCH",
+            "ANALYST_CONSTRUCTED",
+            "SYNTHETICALLY_GENERATED",
+            "RESEARCH_DATASET",
+            "OTHER"
+          ]
+        },
+        "prompt_construction_mode": {
+          "type": "string",
+          "enum": [
+            "ENTITY_INDEPENDENT",
+            "ENTITY_INFORMED"
+          ]
+        },
+        "construction_notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "observation_states_to_classify": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "RETRIEVED",
+              "MENTIONED",
+              "CITED",
+              "INCLUDED",
+              "RECOMMENDED",
+              "ADVERSELY_TREATED"
+            ]
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "observation_states_to_classify": {
+                "contains": {
+                  "enum": [
+                    "INCLUDED",
+                    "RECOMMENDED"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "observation_states_to_classify"
+            ]
+          },
+          "then": {
+            "required": [
+              "represented_need"
+            ],
+            "properties": {
+              "represented_need": {
+                "type": "string",
+                "minLength": 1
+              },
+              "observation_states_to_classify": {
+                "contains": {
+                  "const": "ADVERSELY_TREATED"
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "prompt_construction_mode": {
+                "const": "ENTITY_INFORMED"
+              }
+            },
+            "required": [
+              "prompt_construction_mode"
+            ]
+          },
+          "then": {
+            "required": [
+              "construction_notes"
+            ],
+            "properties": {
+              "construction_notes": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "executionDesign": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "valid_executions_per_prompt_per_system",
+        "outcome_dependent_stopping_prohibited",
+        "outcome_dependent_continuation_prohibited",
+        "replacement_policy"
+      ],
+      "properties": {
+        "valid_executions_per_prompt_per_system": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "outcome_dependent_stopping_prohibited": {
+          "type": "boolean"
+        },
+        "outcome_dependent_continuation_prohibited": {
+          "type": "boolean"
+        },
+        "replacement_policy": {
+          "type": "string",
+          "enum": [
+            "TECHNICAL_FAILURE_ONLY",
+            "NO_REPLACEMENTS",
+            "OTHER_PREDECLARED"
+          ]
+        },
+        "replacement_policy_notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "execution_order_rule": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "comparisonPlan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "comparison_universe_definition",
+        "comparison_selection_criterion",
+        "comparison_universe_basis",
+        "comparison_entities"
+      ],
+      "properties": {
+        "comparison_universe_definition": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "comparison_universe_basis": {
+          "type": "string",
+          "enum": [
+            "INDEPENDENT_EXTERNAL_SOURCE",
+            "ANALYST_DEFINED"
+          ]
+        },
+        "comparison_universe_source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "comparison_selection_criterion": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "prior_ai_performance_visible_during_selection": {
+          "type": "boolean"
+        },
+        "prior_ai_performance_disclosure": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "total_qualifying_entities_identified": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "comparison_entities": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/entity"
+          }
+        },
+        "excluded_qualifying_entities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "entity",
+              "reason"
+            ],
+            "properties": {
+              "entity": {
+                "$ref": "#/$defs/entity"
+              },
+              "reason": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "comparison_universe_basis": {
+                "const": "INDEPENDENT_EXTERNAL_SOURCE"
+              }
+            },
+            "required": [
+              "comparison_universe_basis"
+            ]
+          },
+          "then": {
+            "required": [
+              "comparison_universe_source"
+            ],
+            "properties": {
+              "comparison_universe_source": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "prior_ai_performance_visible_during_selection": {
+                "const": true
+              }
+            },
+            "required": [
+              "prior_ai_performance_visible_during_selection"
+            ]
+          },
+          "then": {
+            "required": [
+              "prior_ai_performance_disclosure"
+            ],
+            "properties": {
+              "prior_ai_performance_disclosure": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "classificationPlan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode"
+      ],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "HUMAN",
+            "AUTOMATED",
+            "HYBRID"
+          ]
+        },
+        "classifier_system": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "classifier_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ruleset_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "instructions_reference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "human_audit_required": {
+          "type": "boolean"
+        },
+        "planned_audit_fraction": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "planned_audit_minimum_records": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "audit_sampling_method": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "SEEDED_PSEUDORANDOM",
+            "STRATIFIED",
+            "OTHER",
+            null
+          ]
+        },
+        "audit_ledger_closure_required": {
+          "type": "boolean"
+        },
+        "auditor_independence_plan": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "enum": [
+                  "AUTOMATED",
+                  "HYBRID"
+                ]
+              }
+            },
+            "required": [
+              "mode"
+            ]
+          },
+          "then": {
+            "required": [
+              "classifier_system",
+              "classifier_version",
+              "ruleset_version",
+              "instructions_reference",
+              "human_audit_required",
+              "planned_audit_fraction",
+              "planned_audit_minimum_records",
+              "audit_sampling_method",
+              "audit_ledger_closure_required"
+            ],
+            "properties": {
+              "classifier_system": {
+                "type": "string",
+                "minLength": 1
+              },
+              "classifier_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "ruleset_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "instructions_reference": {
+                "type": "string",
+                "minLength": 1
+              },
+              "human_audit_required": {
+                "const": true
+              },
+              "planned_audit_fraction": {
+                "type": "number",
+                "minimum": 0.1,
+                "maximum": 1
+              },
+              "planned_audit_minimum_records": {
+                "type": "integer",
+                "minimum": 20
+              },
+              "audit_ledger_closure_required": {
+                "const": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    "validationPlan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "decision_material_claims_will_be_identified"
+      ],
+      "properties": {
+        "decision_material_claims_will_be_identified": {
+          "type": "boolean"
+        },
+        "authoritative_sources_will_be_used_where_reasonably_available": {
+          "type": "boolean"
+        },
+        "source_of_record_method": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "conflicting_source_method": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "exclusionRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rule_id",
+        "description",
+        "technical_or_substantive"
+      ],
+      "properties": {
+        "rule_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "description": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "technical_or_substantive": {
+          "type": "string",
+          "enum": [
+            "TECHNICAL",
+            "SUBSTANTIVE"
+          ]
+        }
+      }
+    },
+    "aggregationPlan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "prompt_level_reduction_rule",
+        "execution_level_rates_required",
+        "determination_coverage_required",
+        "cross_system_aggregation"
+      ],
+      "properties": {
+        "prompt_level_reduction_rule": {
+          "type": "string",
+          "enum": [
+            "ANY_OBSERVED",
+            "MAJORITY_OBSERVED",
+            "ALL_OBSERVED",
+            "NONE"
+          ]
+        },
+        "execution_level_rates_required": {
+          "type": "boolean"
+        },
+        "determination_coverage_required": {
+          "type": "boolean"
+        },
+        "cross_system_aggregation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "enabled"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "formula": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "weighting_basis": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "weights": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "number",
+                "minimum": 0
+              }
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "enabled": {
+                    "const": true
+                  }
+                },
+                "required": [
+                  "enabled"
+                ]
+              },
+              "then": {
+                "required": [
+                  "formula",
+                  "weighting_basis",
+                  "weights"
+                ],
+                "properties": {
+                  "formula": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "weighting_basis": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "weights": {
+                    "minProperties": 1
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

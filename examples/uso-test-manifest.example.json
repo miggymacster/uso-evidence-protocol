@@ -1,0 +1,132 @@
+{
+  "schema_version": "0.1",
+  "protocol_version": "0.9.5",
+  "manifest_version": "1.0",
+  "supersedes_manifest_version": null,
+  "test_id": "TEST-EXAMPLE-001",
+  "test_family_id": "TF-EXAMPLE-001",
+  "test_type": "FORMAL",
+  "created_at": "2026-08-08T12:00:00Z",
+  "first_valid_execution_must_not_precede": "2026-08-08T12:05:00Z",
+  "target_entity": {
+    "entity_id": "ENTITY-EXAMPLE-001",
+    "name": "Example Repair Co.",
+    "entity_type": "ORGANIZATION",
+    "canonical_url": "https://example.com",
+    "disambiguation_note": null
+  },
+  "scope_of_measurement": {
+    "prompt_domain": "Local emergency repair provider selection",
+    "geographic_scope": "Greenville, South Carolina, US",
+    "service_or_market_scope": "Emergency repair services",
+    "language": "English",
+    "locale": "en-US",
+    "prompt_construction_modes": [
+      "ENTITY_INDEPENDENT"
+    ],
+    "prompt_provenance_categories": [
+      "SEARCH_QUERY_DATA"
+    ],
+    "prompt_class_composition": {
+      "branded_count": 0,
+      "non_branded_count": 1,
+      "other_class_counts": {
+        "PURCHASE_CONSIDERATION": 1
+      }
+    },
+    "system_selection_scope": "One consumer AI system for schema demonstration only.",
+    "systems_intentionally_excluded": [],
+    "execution_period": {
+      "planned_start": "2026-08-08T12:05:00Z",
+      "planned_end": "2026-08-08T13:00:00Z"
+    }
+  },
+  "systems": [
+    {
+      "system_name": "Example AI System",
+      "model_or_variant": "example-model-1",
+      "interface": "UI",
+      "selection_basis": "Demonstration system selected for reference example.",
+      "authentication_state": "UNAUTHENTICATED",
+      "personalization_state": "DISABLED",
+      "memory_state": "DISABLED",
+      "geography": "Greenville, South Carolina, US",
+      "locale": "en-US",
+      "language": "en",
+      "access_limitation": null
+    }
+  ],
+  "prompt_set": [
+    {
+      "prompt_id": "P-001",
+      "prompt_text": "Which local provider would you recommend for emergency repair?",
+      "represented_need": "Select a local provider for emergency repair.",
+      "prompt_class": [
+        "NON_BRANDED",
+        "PURCHASE_CONSIDERATION"
+      ],
+      "prompt_provenance": "SEARCH_QUERY_DATA",
+      "prompt_construction_mode": "ENTITY_INDEPENDENT",
+      "construction_notes": null,
+      "observation_states_to_classify": [
+        "MENTIONED",
+        "INCLUDED",
+        "RECOMMENDED",
+        "ADVERSELY_TREATED"
+      ]
+    }
+  ],
+  "prompt_selection_criterion": "Predeclared non-branded emergency-repair purchase-consideration query.",
+  "prompt_selection_basis": "SEARCH_QUERY_DATA",
+  "prior_target_outcome_data_visible_during_prompt_selection": false,
+  "prior_target_outcome_data_disclosure": null,
+  "planned_execution_design": {
+    "valid_executions_per_prompt_per_system": 3,
+    "outcome_dependent_stopping_prohibited": true,
+    "outcome_dependent_continuation_prohibited": true,
+    "replacement_policy": "TECHNICAL_FAILURE_ONLY",
+    "replacement_policy_notes": null,
+    "execution_order_rule": "Fixed"
+  },
+  "comparison_plan": null,
+  "classification_plan": {
+    "mode": "HUMAN",
+    "classifier_system": null,
+    "classifier_version": null,
+    "ruleset_version": null,
+    "instructions_reference": null,
+    "human_audit_required": false,
+    "planned_audit_fraction": null,
+    "planned_audit_minimum_records": null,
+    "audit_sampling_method": null,
+    "audit_ledger_closure_required": false,
+    "auditor_independence_plan": null
+  },
+  "validation_plan": {
+    "decision_material_claims_will_be_identified": true,
+    "authoritative_sources_will_be_used_where_reasonably_available": true,
+    "source_of_record_method": "Use authoritative first-party source where available.",
+    "conflicting_source_method": "Disclose conflict and use UNVERIFIED if unresolved."
+  },
+  "exclusion_rules": [
+    {
+      "rule_id": "EX-TECH-001",
+      "description": "No usable response generated due to technical failure.",
+      "technical_or_substantive": "TECHNICAL"
+    }
+  ],
+  "aggregation_plan": {
+    "prompt_level_reduction_rule": "ANY_OBSERVED",
+    "execution_level_rates_required": true,
+    "determination_coverage_required": true,
+    "cross_system_aggregation": {
+      "enabled": false,
+      "formula": null,
+      "weighting_basis": null,
+      "weights": {}
+    }
+  },
+  "reporting_purpose": "Reference implementation example.",
+  "intended_conformance_level": "FULL_CONFORMANCE",
+  "notes": "Synthetic example. Not evidence about a real provider or system."
+}

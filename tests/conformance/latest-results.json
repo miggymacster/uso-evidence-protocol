@@ -1,0 +1,165 @@
+{
+  "tests": [
+    {
+      "name": "valid_reference_bundle",
+      "expected": "PASS",
+      "actual": "PASS",
+      "ok": true,
+      "error_count": 0,
+      "warning_count": 0,
+      "codes": []
+    },
+    {
+      "name": "wrong_report_execution_count",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "ok": true,
+      "error_count": 1,
+      "warning_count": 0,
+      "codes": [
+        "METRIC_COUNT_MISMATCH"
+      ]
+    },
+    {
+      "name": "represented_need_drift",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "ok": true,
+      "error_count": 1,
+      "warning_count": 0,
+      "codes": [
+        "PROMPT_MANIFEST_DRIFT"
+      ]
+    },
+    {
+      "name": "undeclared_system",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "ok": true,
+      "error_count": 14,
+      "warning_count": 0,
+      "codes": [
+        "UNDECLARED_SYSTEM",
+        "EXECUTION_COUNT_MISMATCH",
+        "METRIC_COUNT_MISMATCH",
+        "METRIC_COUNT_MISMATCH",
+        "METRIC_COUNT_MISMATCH",
+        "EXECUTION_RATE",
+        "METRIC_COUNT_MISMATCH",
+        "METRIC_COUNT_MISMATCH",
+        "METRIC_COUNT_MISMATCH",
+        "EXECUTION_RATE",
+        "METRIC_COUNT_MISMATCH",
+        "METRIC_COUNT_MISMATCH",
+        "METRIC_COUNT_MISMATCH",
+        "EXECUTION_RATE"
+      ]
+    },
+    {
+      "name": "extra_valid_execution_beyond_manifest",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "ok": true,
+      "error_count": 17,
+      "warning_count": 0,
+      "codes": [
+        "EXECUTION_COUNT_MISMATCH",
+        "REPORT_PERIOD_END",
+        "METRIC_COUNT_MISMATCH",
+        "METRIC_COUNT_MISMATCH",
+        "METRIC_COUNT_MISMATCH",
+        "EXECUTION_RATE",
+        "METRIC_COUNT_MISMATCH",
+        "METRIC_COUNT_MISMATCH",
+        "METRIC_COUNT_MISMATCH",
+        "EXECUTION_RATE",
+        "METRIC_COUNT_MISMATCH",
+        "METRIC_COUNT_MISMATCH",
+        "METRIC_COUNT_MISMATCH",
+        "EXECUTION_RATE",
+        "ADVERSE_SUMMARY_MISMATCH",
+        "VALIDATION_TOTAL",
+        "VALIDATION_DISTRIBUTION"
+      ]
+    },
+    {
+      "name": "recommendation_without_adverse_metric",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "ok": true,
+      "error_count": 2,
+      "warning_count": 0,
+      "codes": [
+        "ADVERSE_METRIC_MISSING",
+        "ADVERSE_SUMMARY_MISSING"
+      ]
+    },
+    {
+      "name": "wrong_observation_period",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "ok": true,
+      "error_count": 1,
+      "warning_count": 0,
+      "codes": [
+        "REPORT_PERIOD_START"
+      ]
+    },
+    {
+      "name": "retroactive_exclusion_rule",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "ok": true,
+      "error_count": 1,
+      "warning_count": 0,
+      "codes": [
+        "SCHEMA_EVIDENCE"
+      ]
+    },
+    {
+      "name": "full_conformance_registry_inaccessible",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "ok": true,
+      "error_count": 1,
+      "warning_count": 0,
+      "codes": [
+        "SCHEMA_REGISTRY"
+      ]
+    },
+    {
+      "name": "prompt_class_drift",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "ok": true,
+      "error_count": 1,
+      "warning_count": 0,
+      "codes": [
+        "PROMPT_CLASS_DRIFT"
+      ]
+    },
+    {
+      "name": "incorrect_execution_rate",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "ok": true,
+      "error_count": 1,
+      "warning_count": 0,
+      "codes": [
+        "EXECUTION_RATE"
+      ]
+    },
+    {
+      "name": "unverified_claim_without_warning",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "ok": true,
+      "error_count": 1,
+      "warning_count": 0,
+      "codes": [
+        "UNVERIFIED_WARNING_MISSING"
+      ]
+    }
+  ],
+  "failed_expectations": []
+}

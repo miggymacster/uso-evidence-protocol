@@ -1,0 +1,422 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:uso:test-registry-schema:0.1",
+  "title": "USO Test Registry Schema v0.1",
+  "description": "Machine-readable Test Registry for USO Evidence Protocol v0.9.5. Maintains the chronological existence and disposition of exploratory and formal tests.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "protocol_version",
+    "registry_id",
+    "registry_owner",
+    "created_at",
+    "updated_at",
+    "tests"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1"
+    },
+    "protocol_version": {
+      "type": "string",
+      "const": "0.9.5"
+    },
+    "registry_id": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "registry_owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "organization": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "contact": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "public_full_conformance_claimed": {
+      "type": "boolean"
+    },
+    "public_registry_access": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "accessible": {
+          "type": "boolean"
+        },
+        "location": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "access_notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "tests": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/testRegistryEntry"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "public_full_conformance_claimed": {
+            "const": true
+          }
+        },
+        "required": [
+          "public_full_conformance_claimed"
+        ]
+      },
+      "then": {
+        "required": [
+          "public_registry_access"
+        ],
+        "properties": {
+          "public_registry_access": {
+            "required": [
+              "accessible",
+              "location"
+            ],
+            "properties": {
+              "accessible": {
+                "const": true
+              },
+              "location": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "uriString": {
+      "type": "string",
+      "format": "uri"
+    },
+    "entity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entity_id",
+        "name"
+      ],
+      "properties": {
+        "entity_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "name": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "entity_type": {
+          "type": "string",
+          "enum": [
+            "ORGANIZATION",
+            "BRAND",
+            "PRODUCT",
+            "SERVICE",
+            "PERSON",
+            "PLACE",
+            "OTHER"
+          ]
+        },
+        "canonical_url": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/uriString"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "testRegistryEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "test_id",
+        "test_family_id",
+        "target_entity",
+        "test_type",
+        "registered_at",
+        "created_at",
+        "start_date",
+        "disposition"
+      ],
+      "properties": {
+        "test_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "test_family_id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "target_entity": {
+          "$ref": "#/$defs/entity"
+        },
+        "test_type": {
+          "type": "string",
+          "enum": [
+            "EXPLORATORY",
+            "FORMAL"
+          ]
+        },
+        "registered_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "start_date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "completion_date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "disposition": {
+          "type": "string",
+          "enum": [
+            "PUBLISHED",
+            "INTERNAL",
+            "SUPERSEDED",
+            "INVALID",
+            "ABANDONED",
+            "COMPLETED"
+          ]
+        },
+        "manifest_reference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence_reference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "published_artifact_reference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "materially_comparable": {
+          "type": "boolean"
+        },
+        "comparison_to_current_public_result": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "HIGHER",
+            "LOWER",
+            "NOT_DIRECTLY_COMPARABLE",
+            "SAME",
+            null
+          ]
+        },
+        "public_disclosure_required": {
+          "type": "boolean"
+        },
+        "public_disclosure_reference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "superseded_by_test_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "invalid_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "abandoned_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "disposition": {
+                "const": "PUBLISHED"
+              }
+            },
+            "required": [
+              "disposition"
+            ]
+          },
+          "then": {
+            "required": [
+              "published_artifact_reference"
+            ],
+            "properties": {
+              "published_artifact_reference": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "disposition": {
+                "const": "SUPERSEDED"
+              }
+            },
+            "required": [
+              "disposition"
+            ]
+          },
+          "then": {
+            "required": [
+              "superseded_by_test_id"
+            ],
+            "properties": {
+              "superseded_by_test_id": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "disposition": {
+                "const": "INVALID"
+              }
+            },
+            "required": [
+              "disposition"
+            ]
+          },
+          "then": {
+            "required": [
+              "invalid_reason"
+            ],
+            "properties": {
+              "invalid_reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "disposition": {
+                "const": "ABANDONED"
+              }
+            },
+            "required": [
+              "disposition"
+            ]
+          },
+          "then": {
+            "required": [
+              "abandoned_reason"
+            ],
+            "properties": {
+              "abandoned_reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "public_disclosure_required": {
+                "const": true
+              }
+            },
+            "required": [
+              "public_disclosure_required"
+            ]
+          },
+          "then": {
+            "required": [
+              "public_disclosure_reference"
+            ],
+            "properties": {
+              "public_disclosure_reference": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

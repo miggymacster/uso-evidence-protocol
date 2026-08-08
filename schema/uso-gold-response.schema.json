@@ -1,0 +1,190 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:uso:gold-response-schema:0.1",
+  "title": "USO Gold Test Participant Response Schema v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "protocol_version",
+    "gold_set_version",
+    "participant_id",
+    "completed_at",
+    "responses"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1"
+    },
+    "protocol_version": {
+      "type": "string",
+      "const": "0.9.5"
+    },
+    "gold_set_version": {
+      "type": "string",
+      "const": "0.1"
+    },
+    "participant_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "responses": {
+      "type": "array",
+      "minItems": 50,
+      "maxItems": 50,
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/executionResponse"
+          },
+          {
+            "$ref": "#/$defs/reportingResponse"
+          }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "state": {
+      "type": "string",
+      "enum": [
+        "OBSERVED",
+        "NOT_OBSERVED",
+        "NOT_ESTABLISHED"
+      ]
+    },
+    "executionResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "case_id",
+        "case_type",
+        "observation_states"
+      ],
+      "properties": {
+        "case_id": {
+          "type": "string",
+          "pattern": "^G0[0-4][0-9]$"
+        },
+        "case_type": {
+          "const": "EXECUTION_CLASSIFICATION"
+        },
+        "observation_states": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "RETRIEVED",
+            "MENTIONED",
+            "CITED",
+            "INCLUDED",
+            "RECOMMENDED",
+            "ADVERSELY_TREATED"
+          ],
+          "properties": {
+            "RETRIEVED": {
+              "$ref": "#/$defs/state"
+            },
+            "MENTIONED": {
+              "$ref": "#/$defs/state"
+            },
+            "CITED": {
+              "$ref": "#/$defs/state"
+            },
+            "INCLUDED": {
+              "$ref": "#/$defs/state"
+            },
+            "RECOMMENDED": {
+              "$ref": "#/$defs/state"
+            },
+            "ADVERSELY_TREATED": {
+              "$ref": "#/$defs/state"
+            }
+          }
+        },
+        "recommendation_scope": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "UNCONDITIONAL",
+            "CONDITIONAL",
+            "COMPARATIVE",
+            null
+          ]
+        },
+        "adverse_subtype": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "NEGATIVE_CHARACTERIZATION",
+            "STEER_AWAY",
+            "DISQUALIFICATION",
+            null
+          ]
+        },
+        "claim_validation_state": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "VERIFIED",
+            "INACCURATE",
+            "MATERIALLY_MISLEADING",
+            "UNVERIFIED",
+            "NO_CLAIM_EVALUATED",
+            null
+          ]
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "reportingResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "case_id",
+        "case_type",
+        "core_conformant"
+      ],
+      "properties": {
+        "case_id": {
+          "type": "string",
+          "pattern": "^G0(4[1-9]|50)$"
+        },
+        "case_type": {
+          "const": "REPORTING_INTEGRITY"
+        },
+        "core_conformant": {
+          "type": "boolean"
+        },
+        "defect_codes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}

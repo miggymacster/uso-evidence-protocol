@@ -1,0 +1,47 @@
+{
+  "schema_version": "0.1",
+  "protocol_version": "0.9.5",
+  "registry_id": "REG-EXAMPLE-001",
+  "registry_owner": {
+    "name": "Reference Example",
+    "organization": "USO Reference Package",
+    "contact": null
+  },
+  "created_at": "2026-08-08T11:55:00Z",
+  "updated_at": "2026-08-08T13:10:00Z",
+  "public_full_conformance_claimed": true,
+  "public_registry_access": {
+    "accessible": true,
+    "location": "examples/full-conformant-test/uso-test-registry.json",
+    "access_notes": "Synthetic reference example."
+  },
+  "tests": [
+    {
+      "test_id": "TEST-EXAMPLE-001",
+      "test_family_id": "TF-EXAMPLE-001",
+      "target_entity": {
+        "entity_id": "ENTITY-EXAMPLE-001",
+        "name": "Example Repair Co.",
+        "entity_type": "ORGANIZATION",
+        "canonical_url": "https://example.com"
+      },
+      "test_type": "FORMAL",
+      "registered_at": "2026-08-08T11:58:00Z",
+      "created_at": "2026-08-08T12:00:00Z",
+      "start_date": "2026-08-08T12:05:00Z",
+      "completion_date": "2026-08-08T13:00:00Z",
+      "disposition": "PUBLISHED",
+      "manifest_reference": "examples/full-conformant-test/uso-test-manifest.json",
+      "evidence_reference": "examples/full-conformant-test/uso-evidence.json",
+      "published_artifact_reference": "examples/full-conformant-test/uso-report.json",
+      "materially_comparable": true,
+      "comparison_to_current_public_result": "SAME",
+      "public_disclosure_required": false,
+      "public_disclosure_reference": null,
+      "superseded_by_test_id": null,
+      "invalid_reason": null,
+      "abandoned_reason": null,
+      "notes": "Synthetic reference example."
+    }
+  ]
+}
