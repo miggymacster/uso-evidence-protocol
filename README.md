@@ -2,6 +2,11 @@
 
 This repository contains the public candidate release package for the USO Evidence Protocol.
 
+**Current version:** USO Evidence Protocol v0.9.5  
+**Status:** Final Candidate Specification  
+**DOI:** https://doi.org/10.5281/zenodo.21852690  
+**Tagged release:** https://github.com/miggymacster/uso-evidence-protocol/releases/tag/v0.9.5
+
 ## Current public artifacts
 
 - **USO Evidence Protocol v0.9.5** — Final Candidate Specification
@@ -18,6 +23,10 @@ This repository contains the public candidate release package for the USO Eviden
 ## Status
 
 The protocol is a **Final Candidate Specification** undergoing independent validation prior to v1.0.
+
+Version 0.9.5 has been publicly released, archived, and assigned the persistent identifier:
+
+**DOI:** https://doi.org/10.5281/zenodo.21852690
 
 The package demonstrates machine-readable implementation, a working synthetic end-to-end example, a reference validator, and an initial conformance suite.
 
@@ -100,7 +109,11 @@ pip install -r tools/requirements.txt
 Run the full synthetic reference bundle:
 
 ```bash
-python tools/uso_validator.py   --manifest examples/full-conformant-test/uso-test-manifest.json   --registry examples/full-conformant-test/uso-test-registry.json   --evidence examples/full-conformant-test/uso-evidence.json   --report examples/full-conformant-test/uso-report.json
+python tools/uso_validator.py \
+  --manifest examples/full-conformant-test/uso-test-manifest.json \
+  --registry examples/full-conformant-test/uso-test-registry.json \
+  --evidence examples/full-conformant-test/uso-evidence.json \
+  --report examples/full-conformant-test/uso-report.json
 ```
 
 Run the software conformance suite:
@@ -114,11 +127,19 @@ python tests/conformance/run_conformance_tests.py
 - independent human classification study;
 - independent implementation;
 - independent materiality/adversarial review;
-- empirical inter-rater analysis;
-- canonical public repository publication;
-- archival release and DOI.
+- empirical inter-rater analysis.
 
-See `validation/VALIDATION-STATUS.md` and `PUBLICATION-CHECKLIST.md`.
+See `validation/VALIDATION-STATUS.md`.
+
+## Archival publication
+
+The human-readable normative publication of USO Evidence Protocol v0.9.5 is archived on Zenodo:
+
+**MacFarland, A. L. (2026). _USO Evidence Protocol v0.9.5: Final Candidate Specification for AI Search Observation, Validation, Aggregation, Reporting Integrity, and Evidence Governance._ Zenodo.**
+
+https://doi.org/10.5281/zenodo.21852690
+
+The canonical supporting implementation and validation artifacts remain in this repository and the tagged v0.9.5 GitHub release.
 
 ## Candidate answer-key warning
 
