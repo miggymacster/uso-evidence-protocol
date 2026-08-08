@@ -8,7 +8,7 @@
 **Status:** Final Candidate Specification  
 **Specification Owner:** A. L. MacFarland  
 **License:** CC BY 4.0  
-**Canonical Repository:** Canonical Repository: https://github.com/miggymacster/uso-evidence-protocol
+**Canonical Repository:** https://github.com/miggymacster/uso-evidence-protocol  
 **Persistent Identifier:** Pending candidate release DOI  
 **Review Channel:** Public repository issue tracker upon release  
 **Purpose:** Final normative candidate prior to schema implementation, Gold Test Set validation, independent classification testing, and v1.0 consideration.
